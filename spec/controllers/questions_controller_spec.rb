@@ -20,15 +20,17 @@ require 'rails_helper'
 
 RSpec.describe QuestionsController, type: :controller do
 
+  let!(:question) { create(:question) }
+
   # This should return the minimal set of attributes required to create a valid
   # Question. As you add validations to Question, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    question.attributes.slice(*%w(body answer))
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { body: '' }
   }
 
   # This should return the minimal set of values that should be in the session
@@ -38,7 +40,6 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "GET #index" do
     it "assigns all questions as @questions" do
-      question = Question.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:questions)).to eq([question])
     end
@@ -46,7 +47,6 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested question as @question" do
-      question = Question.create! valid_attributes
       get :show, params: {id: question.to_param}, session: valid_session
       expect(assigns(:question)).to eq(question)
     end
@@ -61,7 +61,6 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested question as @question" do
-      question = Question.create! valid_attributes
       get :edit, params: {id: question.to_param}, session: valid_session
       expect(assigns(:question)).to eq(question)
     end
@@ -103,24 +102,21 @@ RSpec.describe QuestionsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { answer: 'changed' }
       }
 
       it "updates the requested question" do
-        question = Question.create! valid_attributes
         put :update, params: {id: question.to_param, question: new_attributes}, session: valid_session
         question.reload
-        skip("Add assertions for updated state")
+        expect(assigns(:question).answer).to eq new_attributes[:answer]
       end
 
       it "assigns the requested question as @question" do
-        question = Question.create! valid_attributes
         put :update, params: {id: question.to_param, question: valid_attributes}, session: valid_session
         expect(assigns(:question)).to eq(question)
       end
 
       it "redirects to the question" do
-        question = Question.create! valid_attributes
         put :update, params: {id: question.to_param, question: valid_attributes}, session: valid_session
         expect(response).to redirect_to(question)
       end
@@ -128,13 +124,11 @@ RSpec.describe QuestionsController, type: :controller do
 
     context "with invalid params" do
       it "assigns the question as @question" do
-        question = Question.create! valid_attributes
         put :update, params: {id: question.to_param, question: invalid_attributes}, session: valid_session
         expect(assigns(:question)).to eq(question)
       end
 
       it "re-renders the 'edit' template" do
-        question = Question.create! valid_attributes
         put :update, params: {id: question.to_param, question: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
@@ -143,14 +137,12 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested question" do
-      question = Question.create! valid_attributes
       expect {
         delete :destroy, params: {id: question.to_param}, session: valid_session
       }.to change(Question, :count).by(-1)
     end
 
     it "redirects to the questions list" do
-      question = Question.create! valid_attributes
       delete :destroy, params: {id: question.to_param}, session: valid_session
       expect(response).to redirect_to(questions_url)
     end

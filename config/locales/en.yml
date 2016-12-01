@@ -20,4 +20,31 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    link_back: "Back"
+    link_destroy: "Destroy"
+    link_edit: "Edit"
+    link_show: "Show"
+  activerecord:
+    attributes:
+      question:
+        body: "Question"
+        answer: "Correct answer"
+  questions:
+    edit:
+      title: "Editing Question"
+    form:
+      error:
+        one: "1 error prohibited this question from being saved:"
+        other: "%{count} errors prohibited this question from being saved:"
+    index:
+      title: "Questions"
+      table_head_body: "Question"
+      table_head_answer: "Answer"
+      confirm_destroy: "Are you sure?"
+      link_new_question: "New Question"
+    new:
+      title: "New Question"
+    show:
+      label_body: "Question:"
+      label_answer: "Correct answer:"

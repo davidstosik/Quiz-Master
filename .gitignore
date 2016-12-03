@@ -18,3 +18,6 @@
 
 # Ignore test coverage results
 coverage
+
+# Ignore RSpec's persistance file
+spec/examples.txt

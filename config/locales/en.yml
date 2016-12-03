@@ -25,12 +25,18 @@ en:
     link_destroy: "Destroy"
     link_edit: "Edit"
     link_show: "Show"
+
   activerecord:
     attributes:
       question:
         body: "Question"
         answer: "Correct answer"
+
   questions:
+    create:
+      success: "Question was successfully created."
+    destroy:
+      success: "Question was successfully destroyed."
     edit:
       title: "Editing Question"
     form:
@@ -48,8 +54,12 @@ en:
     show:
       label_body: "Question:"
       label_answer: "Correct answer:"
+    update:
+      success: "Question was successfully updated."
 
   quiz:
+    answer:
+      incorrect: "Your answer is incorrect!"
     index:
       title: "Quiz"
       table_head_body: "Question"

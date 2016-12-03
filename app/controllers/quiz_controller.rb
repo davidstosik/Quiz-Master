@@ -21,7 +21,7 @@ class QuizController < ApplicationController
         format.html { render :answer }
         format.json { render json: { correct: true } }
       else
-        format.html { redirect_to quiz_path(@question), alert: 'Your answer is incorrect!' }
+        format.html { redirect_to quiz_path(@question), alert: I18n.t('quiz.answer.incorrect') }
         format.json { render json: { correct: false } }
       end
     end

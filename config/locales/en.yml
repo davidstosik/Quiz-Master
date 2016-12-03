@@ -48,3 +48,12 @@ en:
     show:
       label_body: "Question:"
       label_answer: "Correct answer:"
+
+  quiz:
+    index:
+      title: "Quiz"
+      table_head_body: "Question"
+      link_answer_question: "Answer this question"
+    show:
+      label_answer: "Your answer:"
+      button_answer: "Answer"

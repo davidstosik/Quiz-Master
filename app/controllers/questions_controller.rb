@@ -28,8 +28,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: I18n.t('questions.create.success') }
-        format.json { render :show, status: :created, location: @question }
+        create_update_success(format)
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -42,8 +41,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: I18n.t('questions.update.success') }
-        format.json { render :show, status: :ok, location: @question }
+        create_update_success(format)
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -70,5 +68,17 @@ class QuestionsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
       params.require(:question).permit(:body, :answer)
+    end
+
+    def create_update_success(format)
+      format.html {
+        notice = I18n.t("questions.#{action_name}.success")
+        redirect_to(@question, notice: notice)
+      }
+      format.json {
+        status = :ok
+        status = :created if action_name == :create
+        render(:show, status: status, location: @question)
+      }
     end
 end

@@ -32,16 +32,39 @@ RSpec.describe Question, type: :model do
       let(:answer) { 'Lower Case' }
       it { is_expected.to be_truthy }
     end
+    context 'when the answer is correct with trailing spaces' do
+      let(:question) { build(:question, answer: 'lower case') }
+      let(:answer) { ' lower case ' }
+      it { is_expected.to be_truthy }
+    end
     context 'when the correct answer is numeric' do
-      before { skip('TODO: number to words') }
       let(:question) { build(:question, answer: '5') }
       context 'and passed answer is the same number' do
-        let(:answer) { 5 }
+        let(:answer) { '5' }
         it { is_expected.to be_truthy }
       end
       context 'and passed answer is the corresponding number in words' do
         let(:answer) { 'five' }
         it { is_expected.to be_truthy }
+      end
+    end
+    context 'when the correct answer contains numbers' do
+      let(:question) { build(:question, answer: '5 apples, 2 oranges') }
+      context 'and passed answer is the same' do
+        let(:answer) { question.answer }
+        it { is_expected.to be_truthy }
+      end
+      context 'and passed answer matches, with all numbers into words' do
+        let(:answer) { 'five apples, two oranges' }
+        it { is_expected.to be_truthy }
+      end
+      context 'and passed answer matches, with some numbers into words' do
+        let(:answer) { 'five apples, 2 oranges' }
+        it { is_expected.to be_truthy }
+      end
+      context 'and passed answer does not match' do
+        let(:answer) { 'five apples, three oranges' }
+        it { is_expected.to be_falsy }
       end
     end
   end

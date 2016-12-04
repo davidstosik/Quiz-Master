@@ -41,6 +41,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'rspec_api_documentation'
 end
 
 group :development do

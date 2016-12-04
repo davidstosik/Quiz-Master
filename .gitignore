@@ -21,3 +21,6 @@ coverage
 
 # Ignore RSpec's persistance file
 spec/examples.txt
+
+# Ignore auto-generated documentation
+/doc

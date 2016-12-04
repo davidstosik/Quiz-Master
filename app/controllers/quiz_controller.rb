@@ -17,12 +17,18 @@ class QuizController < ApplicationController
   # GET /quiz/1/answer.json
   def answer
     respond_to do |format|
-      if @question.answer_is_correct?(@user_answer)
+      if @user_answer.empty?
+        alert = I18n.t('quiz.answer.empty')
+      elsif !@question.answer_is_correct?(@user_answer)
+        alert = I18n.t('quiz.answer.incorrect')
+      end
+
+      if alert
+        format.html { redirect_to quiz_path(@question), alert: alert }
+        format.json { render json: { correct: false, message: alert } }
+      else
         format.html { render :answer }
         format.json { render json: { correct: true } }
-      else
-        format.html { redirect_to quiz_path(@question), alert: I18n.t('quiz.answer.incorrect') }
-        format.json { render json: { correct: false } }
       end
     end
   end
@@ -34,6 +40,9 @@ class QuizController < ApplicationController
     end
 
     def set_user_answer
-      @user_answer = params.require(:answer)
+      unless (@user_answer = params[:answer])
+        # Allow empty string for a better error message to the user.
+        raise ActionController::ParameterMissing.new(:answer)
+      end
     end
 end

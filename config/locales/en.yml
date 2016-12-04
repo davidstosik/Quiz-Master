@@ -59,6 +59,7 @@ en:
 
   quiz:
     answer:
+      empty: "You need to submit an answer."
       incorrect: "Your answer is incorrect!"
     index:
       title: "Quiz"

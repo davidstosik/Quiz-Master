@@ -4,4 +4,8 @@
 
 # Quiz Master!
 
-Quiz Master is Quipper's technical exam for web developers.
+Quiz Master is Quipper's technical exam for web developers. This is my
+implementation. You can test it live at http://quizmaster.davidstosik.me.
+
+Please have a look at the
+[wiki](https://github.com/davidstosik/Quiz-Master/wiki) for more details.

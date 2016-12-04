@@ -77,7 +77,7 @@ class QuestionsController < ApplicationController
       }
       format.json {
         status = :ok
-        status = :created if action_name == :create
+        status = :created if action_name == 'create'
         render(:show, status: status, location: @question)
       }
     end

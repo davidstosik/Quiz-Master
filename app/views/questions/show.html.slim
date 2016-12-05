@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong = t('.label_body')
+  = @question.body
+
+
+p
+  strong = t('.label_answer')
+  = @question.answer
+
+
+= link_to t('common.link_edit'), edit_question_path(@question)
+= ' | '
+= link_to t('common.link_back'), questions_path

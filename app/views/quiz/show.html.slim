@@ -1,0 +1,18 @@
+= if defined?(alert)
+  p#alert = alert
+
+p
+  = @question.body
+
+
+= form_tag answer_quiz_path(@question), method: :get do
+  .field
+    = label_tag(:answer, t('.label_answer'))
+    = text_field_tag(:answer)
+
+  .actions
+    = submit_tag(t('.button_answer'))
+
+br
+
+= link_to t('common.link_back'), quiz_index_path

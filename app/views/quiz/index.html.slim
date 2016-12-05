@@ -1,0 +1,15 @@
+p#notice = notice
+
+h1 = t('.title')
+
+table
+  thead
+    tr
+      th = t('.table_head_body')
+      th
+
+  tbody
+    - @questions.each do |question|
+      tr
+        td = question.body
+        td = link_to t('.link_answer_question'), quiz_path(question)

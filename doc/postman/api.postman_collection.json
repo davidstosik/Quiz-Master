@@ -1,0 +1,246 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Quiz Master",
+		"_postman_id": "c788e73b-5a4f-e24d-d33e-e6d64e74832c",
+		"description": "My implementation of Quipper's test.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Questions",
+			"description": "",
+			"item": [
+				{
+					"name": "/questions.json",
+					"request": {
+						"url": "{{domain}}/questions.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[body]",
+									"value": "How many hiragana are there?",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "question[answer]",
+									"value": "46",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Gets a list of all questions."
+					},
+					"response": []
+				},
+				{
+					"name": "/questions/258685475.json",
+					"request": {
+						"url": "{{domain}}/questions/258685475.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[body]",
+									"value": "How many hiragana are there?",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "question[answer]",
+									"value": "46",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Gets a question by id."
+					},
+					"response": []
+				},
+				{
+					"name": "/questions.json",
+					"request": {
+						"url": "{{domain}}/questions.json",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[body]",
+									"value": "How many hiragana are there?",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "question[answer]",
+									"value": "46",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Creates a new question."
+					},
+					"response": []
+				},
+				{
+					"name": "/questions/258685475.json",
+					"request": {
+						"url": "{{domain}}/questions/258685475.json",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[answer]",
+									"value": "28",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Updates a question."
+					},
+					"response": []
+				},
+				{
+					"name": "/questions/584096708.json",
+					"request": {
+						"url": "{{domain}}/questions/584096708.json",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[body]",
+									"value": "How many hiragana are there?",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "question[answer]",
+									"value": "46",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Deletes a question by id."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quiz",
+			"description": "",
+			"item": [
+				{
+					"name": "/quiz.json",
+					"request": {
+						"url": "{{domain}}/quiz.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "question[body]",
+									"value": "How many hiragana are there?",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								},
+								{
+									"key": "question[answer]",
+									"value": "46",
+									"type": "text",
+									"enabled": true,
+									"warning": ""
+								}
+							]
+						},
+						"description": "Gets a list of all questions for a quiz (no answers retrieved)."
+					},
+					"response": []
+				},
+				{
+					"name": "/quiz/817335538.json",
+					"request": {
+						"url": "http://localhost:3000/quiz/817335538.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get a question for a quiz (no answer retrieved)."
+					},
+					"response": []
+				},
+				{
+					"name": "/quiz/817335538/answer.json?answer=Tokyo",
+					"request": {
+						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=Tokyo",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Check an answer to a question (correct answer)."
+					},
+					"response": []
+				},
+				{
+					"name": "/quiz/817335538/answer.json?answer=",
+					"request": {
+						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Check an answer to a question (empty answer)."
+					},
+					"response": []
+				},
+				{
+					"name": "/quiz/817335538/answer.json?answer=45",
+					"request": {
+						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=45",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Check an answer to a question (incorrect answer)."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

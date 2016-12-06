@@ -1,4 +1,7 @@
-p
-  = t('.correct')
+.container.mt-2.text-xs-center
+  h1 = t('.correct')
 
-= link_to t('common.link_back'), quiz_index_path
+  = image_tag 'party_popper', class: 'img-fluid'
+
+  = link_to t('common.link_back'), quiz_index_path,
+    class: 'btn btn-outline-primary mt-2'

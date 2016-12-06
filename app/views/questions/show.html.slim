@@ -1,15 +1,15 @@
-p#notice = notice
+.container.mt-2
+  - if notice
+    .alert.alert-info = notice
 
-p
-  strong = t('.label_body')
-  = @question.body
+  .text-xs-right.float-md-right
+    = link_to t('common.link_edit'), edit_question_path(@question),
+      class: 'btn btn-primary'
 
+  h1 = t('.title', id: @question.id)
 
-p
-  strong = t('.label_answer')
-  = @question.answer
-
-
-= link_to t('common.link_edit'), edit_question_path(@question)
-= ' | '
-= link_to t('common.link_back'), questions_path
+  dl.row
+    dt.col-sm-3 = t('.label_body')
+    dd.col-sm-9 = @question.body
+    dt.col-sm-3 = t('.label_answer')
+    dd.col-sm-9 = @question.answer

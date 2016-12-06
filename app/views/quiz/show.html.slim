@@ -1,18 +1,18 @@
-= if defined?(alert)
-  p#alert = alert
+.jumbotron.jumbotron-fluid.bg-info
+  .container
+    .lead = @question.body
 
-p
-  = @question.body
+.container.mt-2
+  - if alert
+    .alert.alert-danger = alert
 
-
-= form_tag answer_quiz_path(@question), method: :get do
-  .field
-    = label_tag(:answer, t('.label_answer'))
-    = text_field_tag(:answer)
-
-  .actions
-    = submit_tag(t('.button_answer'))
-
-br
-
-= link_to t('common.link_back'), quiz_index_path
+  = form_tag answer_quiz_path(@question), method: :get, class: 'form-inline' do
+    .form-group
+      = label_tag(:answer, t('.label_answer'))
+      = ' '
+      = text_field_tag(:answer, nil, class: 'form-control')
+    = ' '
+    = submit_tag(t('.button_answer'), class: 'btn btn-primary')
+    = ' '
+    = link_to t('common.link_cancel'), quiz_index_path,
+      class: 'btn btn-outline-primary'

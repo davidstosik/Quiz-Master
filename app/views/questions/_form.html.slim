@@ -1,19 +1,22 @@
 = form_for(question) do |f|
   - if question.errors.any?
-    #error_explanation
-      h2 = t('.error', count: question.errors.count)
+    .alert.alert-danger
+      strong = t('.error', count: question.errors.count)
 
       ul
         - question.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :body
-    = f.text_area :body
+  .form-group.row
+    = f.label :body, class: 'col-sm-2 col-form-label'
+    .col-sm-10 = f.text_area :body, class: 'form-control'
 
-  .field
-    = f.label :answer
-    = f.text_field :answer
+  .form-group.row
+    = f.label :answer, class: 'col-sm-2 col-form-label'
+    .col-sm-10 = f.text_field :answer, class: 'form-control'
 
-  .actions
-    = f.submit
+  .text-xs-right
+    - if cancel
+      = link_to t('common.link_cancel'), cancel, class: 'btn btn-outline-primary'
+      = ' '
+    = f.submit class: 'btn btn-primary'

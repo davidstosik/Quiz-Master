@@ -1,15 +1,22 @@
-p#notice = notice
+.jumbotron.jumbotron-fluid.bg-info
+  .container
+    h1.display-3 = t('.title')
+    .lead = t('.lead')
 
-h1 = t('.title')
+.container.mt-2
+  - if notice
+    .alert.alert-info = notice
 
-table
-  thead
-    tr
-      th = t('.table_head_body')
-      th
+  .table-responsive
+    table.table.table-hover
+      thead.thead-default
+        tr
+          th = t('.table_head_body')
+          th
 
-  tbody
-    - @questions.each do |question|
-      tr
-        td = question.body
-        td = link_to t('.link_answer_question'), quiz_path(question)
+      tbody
+        - @questions.each do |question|
+          tr
+            td = question.body
+            td = link_to t('.link_answer_question'), quiz_path(question),
+                 class: 'btn btn-secondary btn-sm'

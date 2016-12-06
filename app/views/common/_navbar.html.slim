@@ -1,0 +1,15 @@
+header.navbar.navbar-full.navbar-dark.bg-primary.navbar-static-top
+
+  nav.container
+    button.navbar-toggler.float-xs-right.hidden-sm-up type="button" data-toggle="collapse" data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false" aria-label="Toggle navigation"
+    = link_to t('app_name'), root_path, class: 'navbar-brand'
+
+    .clearfix.hidden-sm-up
+
+    #bd-main-nav.collapse.navbar-toggleable-xs
+      ul.nav.navbar-nav
+        li.nav-item
+          = link_to t('.questions'), questions_path, class: 'nav-link'
+        li.nav-item
+          = link_to t('.quiz'), quiz_index_path, class: 'nav-link'
+

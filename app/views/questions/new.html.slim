@@ -1,5 +1,4 @@
-h1 = t('.title')
+.container.mt-2
+  h1 = t('.title')
 
-= render 'form', question: @question
-
-= link_to t('common.link_back'), questions_path
+  = render 'form', question: @question, cancel: questions_path

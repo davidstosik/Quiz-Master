@@ -28,7 +28,8 @@ RSpec.describe "Quiz", type: :request do
       expect(response.body).not_to include(question.answer)
     end
     it 'outputs a form that allows the user to answer' do
-      expect(response.body).to include("<form action=\"#{answer_quiz_path(question)}\"")
+      path = Regexp.escape(answer_quiz_path(question))
+      expect(response.body).to match(/<form [^>]*action=\"#{path}\"/)
     end
   end
 

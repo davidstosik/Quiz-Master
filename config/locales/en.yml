@@ -20,8 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  app_name: "Quiz Master"
+
   common:
     link_back: "Back"
+    link_cancel: "Cancel"
     link_destroy: "Destroy"
     link_edit: "Edit"
     link_show: "Show"
@@ -38,13 +41,14 @@ en:
     destroy:
       success: "Question was successfully destroyed."
     edit:
-      title: "Editing Question"
+      title: "Editing Question #%{id}"
     form:
       error:
         one: "1 error prohibited this question from being saved:"
         other: "%{count} errors prohibited this question from being saved:"
     index:
       title: "Questions"
+      lead: "Manage your questions here. You can create, view, edit and delete questions."
       table_head_body: "Question"
       table_head_answer: "Answer"
       confirm_destroy: "Are you sure?"
@@ -52,6 +56,7 @@ en:
     new:
       title: "New Question"
     show:
+      title: "Question #%{id}"
       label_body: "Question:"
       label_answer: "Correct answer:"
     update:
@@ -59,10 +64,12 @@ en:
 
   quiz:
     answer:
+      correct: "Correct!"
       empty: "You need to submit an answer."
       incorrect: "Your answer is incorrect!"
     index:
       title: "Quiz"
+      lead: "Test your knowledge by answering questions."
       table_head_body: "Question"
       link_answer_question: "Answer this question"
     show:

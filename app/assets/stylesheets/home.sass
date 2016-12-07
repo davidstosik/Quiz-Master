@@ -1,0 +1,17 @@
+.home
+  .jumbotron
+    color: white
+    background-image: url(asset-path('hero/small.jpg'))
+    background-position: center
+    background-size: cover
+    +media-breakpoint-up(lg)
+      background-image: url(asset-path('hero/big.jpg'))
+
+  .card
+    display: flex
+    flex-direction: column
+
+    .card-content
+      flex-grow: 1
+    .card-block:last-child .btn
+      white-space: normal

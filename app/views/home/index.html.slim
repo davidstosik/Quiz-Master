@@ -1,0 +1,21 @@
+.home
+  .jumbotron.jumbotron-fluid.text-xs-center
+    .container
+      h1.display-3 = t('.title')
+      .lead = t('.lead')
+
+  .container
+    .card-deck
+      - @cards.each do |key, uri|
+        .card id="card-#{key}"
+
+          = link_to uri do
+            = image_tag "cards/#{key}.jpg", class: 'card-img-top w-100'
+
+          .card-block.card-content
+            h4.card-title = t(".cards.#{key}.title")
+            p.card-text = t(".cards.#{key}.text")
+
+          .card-block.text-xs-center
+            = link_to t(".cards.#{key}.button"), uri,
+              class: 'btn btn-block btn-secondary'

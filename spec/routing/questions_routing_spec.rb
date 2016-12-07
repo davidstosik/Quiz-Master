@@ -3,10 +3,6 @@ require "rails_helper"
 RSpec.describe QuestionsController, type: :routing do
   describe "routing" do
 
-    it "routes the site's root to #index" do
-      expect(:get => "/").to route_to("questions#index")
-    end
-
     it "routes to #index" do
       expect(:get => "/questions").to route_to("questions#index")
     end

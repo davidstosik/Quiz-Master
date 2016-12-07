@@ -35,6 +35,24 @@ en:
         body: "Question"
         answer: "Correct answer"
 
+  home:
+    index:
+      title: "Quiz Master"
+      lead: "My implementation of Quipper's coding test."
+      cards:
+        crud:
+          title: "CRUD"
+          text: "Manage this site's questions: list, view, create, edit and delete questions."
+          button: "Manage questions"
+        quiz:
+          title: "Quiz"
+          text: "Pick a question from the list and try to answer it!"
+          button: "Look at the quiz"
+        random:
+          title: "Random Question"
+          text: "Ready to face the challenge, and answer a random question?"
+          button: "Yeah!"
+
   questions:
     create:
       success: "Question was successfully created."

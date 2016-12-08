@@ -2,6 +2,10 @@ class Question < ApplicationRecord
   validates_presence_of :body
   validates_presence_of :answer
 
+  def self.random
+    order('RANDOM()').first
+  end
+
   def answer_is_correct?(string)
     string = string.strip.downcase
     answer = self.answer.strip.downcase

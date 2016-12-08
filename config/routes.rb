@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :questions
 
   resources :quiz, only: [:index, :show] do
+    collection do
+      get :random
+    end
     member do
       get :answer
     end

@@ -17,6 +17,24 @@ RSpec.describe Question, type: :model do
     it { is_expected.to validate_presence_of(:answer) }
   end
 
+  describe '.random' do
+    subject { described_class.random }
+    context 'when there are questions in the database' do
+      before { create_list(:question, 3) }
+      it 'returns a Question' do
+        is_expected.to be_a(Question)
+      end
+      it 'returns an existing Question' do
+        expect(Question.find(subject.id)).to be_present
+      end
+    end
+    context 'when the database is empty' do
+      it 'returns nil' do
+        is_expected.to be_nil
+      end
+    end
+  end
+
   describe '#answer_is_correct?' do
     subject { question.answer_is_correct?(answer) }
     context 'when answer is correct' do

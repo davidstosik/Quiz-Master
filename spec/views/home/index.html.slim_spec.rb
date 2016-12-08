@@ -4,7 +4,7 @@ RSpec.describe 'home/index', type: :view do
   let(:cards) { {
     crud: questions_path,
     quiz: quiz_index_path,
-    random: nil
+    random: random_quiz_index_path
   } }
   before(:each) do
     assign(:cards, cards)

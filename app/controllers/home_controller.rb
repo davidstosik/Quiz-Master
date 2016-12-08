@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @cards = {
       crud: questions_path,
       quiz: quiz_index_path,
-      random: nil
+      random: random_quiz_index_path
     }
   end
 end

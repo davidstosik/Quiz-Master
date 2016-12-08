@@ -33,6 +33,26 @@ RSpec.describe "Quiz", type: :request do
     end
   end
 
+  describe 'GET /quiz/random' do
+    before do
+      expect(Question).to receive(:random) { question }
+      get random_quiz_index_path
+    end
+    it 'succeeds' do
+      expect(response).to be_success
+    end
+    it 'outputs the question' do
+      expect(response.body).to include(question.body)
+    end
+    it 'does not output the answer' do
+      expect(response.body).not_to include(question.answer)
+    end
+    it 'outputs a form that allows the user to answer' do
+      path = Regexp.escape(answer_quiz_path(question))
+      expect(response.body).to match(/<form [^>]*action=\"#{path}\"/)
+    end
+  end
+
   describe 'GET /quiz/1/answer' do
     context 'when no answer is supplied' do
       it 'fails with a 400 error' do

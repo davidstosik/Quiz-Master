@@ -13,6 +13,13 @@ class QuizController < ApplicationController
   def show
   end
 
+  # GET /quiz/random
+  # GET /quiz/random.json
+   def random
+     @question = Question.random
+     render :show
+   end
+
   # GET /quiz/1/answer
   # GET /quiz/1/answer.json
   def answer

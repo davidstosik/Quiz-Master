@@ -187,7 +187,7 @@
 				{
 					"name": "/quiz/817335538.json",
 					"request": {
-						"url": "http://localhost:3000/quiz/817335538.json",
+						"url": "{{domain}}/quiz/817335538.json",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -199,9 +199,23 @@
 					"response": []
 				},
 				{
+					"name": "/quiz/random.json",
+					"request": {
+						"url": "{{domain}}/quiz/random.json",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get a random question for a quiz (no answer retrieved)."
+					},
+					"response": []
+				},
+				{
 					"name": "/quiz/817335538/answer.json?answer=Tokyo",
 					"request": {
-						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=Tokyo",
+						"url": "{{domain}}/quiz/817335538/answer.json?answer=Tokyo",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -215,7 +229,7 @@
 				{
 					"name": "/quiz/817335538/answer.json?answer=",
 					"request": {
-						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=",
+						"url": "{{domain}}/quiz/1/answer.json",
 						"method": "GET",
 						"header": [],
 						"body": {
@@ -229,7 +243,7 @@
 				{
 					"name": "/quiz/817335538/answer.json?answer=45",
 					"request": {
-						"url": "http://localhost:3000/quiz/817335538/answer.json?answer=45",
+						"url": "{{domain}}/quiz/817335538/answer.json?answer=45",
 						"method": "GET",
 						"header": [],
 						"body": {

@@ -19,7 +19,7 @@ RSpec.resource 'Quiz' do
     let(:id) { question.id }
 
     example_request 'Retrieve a Question for a quiz' do
-      explanation 'Returns one Question by id, no answers.'
+      explanation 'Returns one Question by id, no answer.'
       expect(status).to eq 200
       expect(response_json['body']).to eq question.body
       expect(response_json).not_to have_key('answer')
@@ -28,6 +28,17 @@ RSpec.resource 'Quiz' do
     example 'When question is not found', document: false do
       do_request(id: 0)
       expect(status).to eq 404
+    end
+  end
+
+  get 'quiz/random.json' do
+    example 'Retrieve a random Question for a quiz' do
+      explanation 'Returns a random Question, no answer.'
+      expect(Question).to receive(:random) { question }
+      do_request
+      expect(status).to eq 200
+      expect(response_json['body']).to eq question.body
+      expect(response_json).not_to have_key('answer')
     end
   end
 

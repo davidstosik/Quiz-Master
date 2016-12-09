@@ -5,6 +5,8 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
     meta http-equiv="x-ua-compatible" content="ie=edge"
 
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
     title = t('app_name')
     = csrf_meta_tags
 
@@ -13,5 +15,3 @@ html
   body
     = render 'common/navbar'
     = yield
-
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'

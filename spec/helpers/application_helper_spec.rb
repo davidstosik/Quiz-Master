@@ -16,6 +16,11 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect_any_instance_of(Redcarpet::Markdown).to receive(:render) { '' }
       helper.markdown('simple text')
     end
+    it 'initializes Markdown only once' do
+      expect(Redcarpet::Markdown).to receive(:new).once.and_call_original
+      helper.markdown('simple text')
+      helper.markdown('simple text')
+    end
     it 'returns safe HTML' do
       expect(helper.markdown('simple text')).to be_html_safe
     end

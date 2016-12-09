@@ -1,32 +1,36 @@
-.jumbotron.jumbotron-fluid.bg-info
+.questions-index
+  .jumbotron.jumbotron-fluid.bg-info
+    .container
+      h1.display-3 = t('.title')
+      .lead = t('.lead')
+
   .container
-    h1.display-3 = t('.title')
-    .lead = t('.lead')
+    - if notice
+      .alert.alert-info = notice
 
-.container
-  - if notice
-    .alert.alert-info = notice
+    .mb-1
+      = link_to t('.link_new_question'), new_question_path,
+        class: 'btn btn-primary'
 
-  .mb-1
-    = link_to t('.link_new_question'), new_question_path,
-      class: 'btn btn-primary'
-
-  .table-responsive
-    table.table.table-hover
-      thead.thead-default
-        tr
-          th = t('.table_head_body')
-          th = t('.table_head_answer')
-          th colspan="3"
-
-      tbody
-        - btn_classes = 'btn btn-secondary btn-sm'
-        - @questions.each do |question|
+    .table-responsive
+      table.table.table-hover
+        thead.thead-default
           tr
-            td = strip_tags markdown question.body
-            td = question.answer
-            td = link_to t('common.link_show'), question, class: btn_classes
-            td = link_to t('common.link_edit'), edit_question_path(question),
-                 class: btn_classes
-            td = link_to t('common.link_destroy'), question, method: :delete,
-              data: { confirm: t('.confirm_destroy') }, class: btn_classes
+            th = t('.table_head_body')
+            th = t('.table_head_answer')
+            th colspan="3"
+
+        tbody
+          - btn_classes = 'btn btn-secondary btn-sm'
+          - @questions.each do |question|
+            tr
+              td = strip_tags markdown question.body
+              td = question.answer
+              td
+                = link_to t('common.link_show'), question, class: btn_classes
+                = ' '
+                = link_to t('common.link_edit'), edit_question_path(question),
+                   class: btn_classes
+                = ' '
+                = link_to t('common.link_destroy'), question, method: :delete,
+                data: { confirm: t('.confirm_destroy') }, class: btn_classes

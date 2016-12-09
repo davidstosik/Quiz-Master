@@ -9,7 +9,8 @@
 
   .form-group.row
     = f.label :body, class: 'col-sm-2 col-form-label'
-    .col-sm-10 = f.text_area :body, class: 'form-control'
+    .col-sm-10
+      = f.text_area :body, class: 'form-control simplemde'
 
   .form-group.row
     = f.label :answer, class: 'col-sm-2 col-form-label'

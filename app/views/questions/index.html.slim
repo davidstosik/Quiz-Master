@@ -27,10 +27,19 @@
               td = strip_tags markdown question.body
               td = question.answer
               td
-                = link_to t('common.link_show'), question, class: btn_classes
+                = link_to question, class: btn_classes do
+                  = icon('eye')
+                  = ' '
+                  = t('common.link_show')
                 = ' '
-                = link_to t('common.link_edit'), edit_question_path(question),
-                   class: btn_classes
+                = link_to edit_question_path(question),
+               class: btn_classes do
+                  = icon('pencil')
+                  = ' '
+                  = t('common.link_edit')
                 = ' '
-                = link_to t('common.link_destroy'), question, method: :delete,
-                data: { confirm: t('.confirm_destroy') }, class: btn_classes
+                = link_to question, method: :delete,
+                data: { confirm: t('.confirm_destroy') }, class: btn_classes do
+                  = icon('trash')
+                  = ' '
+                  = t('common.link_destroy')

@@ -29,6 +29,11 @@ en:
     link_edit: "Edit"
     link_show: "Show"
 
+    navbar:
+      questions: "Questions"
+      quiz: "Quiz"
+      random: "Random"
+
   activerecord:
     attributes:
       question:

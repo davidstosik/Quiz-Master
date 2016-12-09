@@ -149,6 +149,7 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.3.4)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -248,6 +249,7 @@ DEPENDENCIES
   rails-assets-tether (>= 1.1.0)!
   rails-controller-testing
   rails_12factor
+  redcarpet
   rspec-rails (~> 3.5)
   rspec_api_documentation
   sass-rails (~> 5.0)

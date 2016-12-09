@@ -10,6 +10,6 @@
 
   dl.row
     dt.col-sm-3 = t('.label_body')
-    dd.col-sm-9 = @question.body
+    dd.col-sm-9 = markdown @question.body
     dt.col-sm-3 = t('.label_answer')
     dd.col-sm-9 = @question.answer

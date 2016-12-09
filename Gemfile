@@ -36,6 +36,8 @@ gem 'apitome'
 
 gem 'slim-rails'
 
+gem 'redcarpet'
+
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'rails-assets-tether', '>= 1.1.0', source: 'https://rails-assets.org'
 gem 'font-awesome-sass', '~> 4.7.0'

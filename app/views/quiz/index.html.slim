@@ -7,6 +7,10 @@
   - if notice
     .alert.alert-info = notice
 
+  .mb-1
+    = link_to t('.link_random'), random_quiz_index_path,
+      class: 'btn btn-primary'
+
   .table-responsive
     table.table.table-hover
       thead.thead-default

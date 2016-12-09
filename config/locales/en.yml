@@ -94,6 +94,7 @@ en:
       title: "Quiz"
       lead: "Test your knowledge by answering questions."
       table_head_body: "Question"
+      link_random: "Answer a random question"
       link_answer_question: "Answer this question"
     show:
       label_answer: "Your answer:"

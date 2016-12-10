@@ -1,22 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "questions/index", type: :view do
-  before(:each) do
-    assign(:questions, [
-      Question.create!(
-        :body => "MyText",
-        :answer => "Answer"
-      ),
-      Question.create!(
-        :body => "MyText",
-        :answer => "Answer"
-      )
-    ])
-  end
+RSpec.describe 'questions/index', type: :view do
+  let(:questions) { create_list(:question, 2) }
+  before(:each) { assign(:questions, questions) }
 
-  it "renders a list of questions" do
+  it 'renders a list of question objects' do
     render
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Answer".to_s, :count => 2
+    assert_select 'table tr' do |elements|
+      elements[1..-1].each_with_index do |element, i|
+        assert_select element, 'td', text: questions[i].body, count: 1
+        assert_select element, 'td', text: questions[i].answer, count: 1
+      end
+    end
   end
 end

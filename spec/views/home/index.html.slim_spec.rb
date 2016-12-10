@@ -21,7 +21,7 @@ RSpec.describe 'home/index', type: :view do
     render
     cards.each do |key, link|
       next unless link
-      assert_select ".card#card-#{key} a[href=\"#{link}\"]", count: 2
+      assert_select ".card#card-#{key} a[href=?]", link, count: 2
     end
   end
 end

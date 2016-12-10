@@ -1,16 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "questions/show", type: :view do
-  before(:each) do
-    @question = assign(:question, Question.create!(
-      :body => "MyText",
-      :answer => "Answer"
-    ))
-  end
+RSpec.describe 'questions/show', type: :view do
+  let(:question) { create(:question) }
+  before(:each) { assign(:question, question) }
 
-  it "renders attributes in <p>" do
+  it 'renders attributes' do
     render
-    expect(rendered).to match(/MyText/)
-    expect(rendered).to match(/Answer/)
+    expect(rendered).to include(question.body)
+    expect(rendered).to include(question.answer)
   end
 end

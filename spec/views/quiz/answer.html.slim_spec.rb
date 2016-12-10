@@ -1,15 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe "quiz/answer", type: :view do
-  before(:each) do
-    @question = assign(:question, Question.create!(
-      :body => "MyText",
-      :answer => "Unique Answer"
-    ))
-  end
+RSpec.describe 'quiz/answer', type: :view do
+  let!(:question) { create(:question) }
+  before { assign(:question, question) }
 
   it "displays 'Correct'" do
     render
-    expect(rendered).to match(/Correct/)
+    expect(rendered).to include('Correct!')
   end
 end

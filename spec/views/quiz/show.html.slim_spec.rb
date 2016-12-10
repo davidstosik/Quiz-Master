@@ -1,27 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe "quiz/show", type: :view do
-  before(:each) do
-    @question = assign(:question, Question.create!(
-      :body => "MyText",
-      :answer => "Unique Answer"
-    ))
+RSpec.describe 'quiz/show', type: :view do
+  let!(:question) { create(:question) }
+  before { @question = question }
+
+  it 'renders the question' do
+    render
+    expect(rendered).to include(question.body)
   end
 
-  it "renders question in <p>" do
+  it 'does not render answer' do
     render
-    expect(rendered).to match(/MyText/)
+    expect(rendered).not_to include(question.answer)
   end
 
-  it "does not render answer" do
+  it 'renders a form to answer' do
     render
-    expect(rendered).not_to match(/Unique Answer/)
-  end
-
-  it "renders a form to answer" do
-    render
-    assert_select "form[action=\"#{answer_quiz_path(@question)}\"]", count: 1
-    assert_select "input[name=answer]", count: 1
-    assert_select "input[type=submit]", count: 1
+    assert_select 'form[action=?][method=?]', answer_quiz_path(question), 'get' do
+      assert_select 'input#answer[name=?]', 'answer'
+      assert_select 'input[type=submit]'
+    end
   end
 end

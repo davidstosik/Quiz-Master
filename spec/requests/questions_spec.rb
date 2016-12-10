@@ -9,9 +9,9 @@ RSpec.describe "Questions", type: :request do
     it 'succeeds' do
       expect(response).to be_success
     end
-    it 'outputs a list of all questions and answers' do
+    it 'outputs a list of all questions title and answer' do
       questions.each do |question|
-        expect(response.body).to include(question.body)
+        expect(response.body).to include(question.title)
         expect(response.body).to include(question.answer)
       end
     end

@@ -1,18 +1,23 @@
 .jumbotron.jumbotron-fluid.bg-info
   .container
-    .lead = markdown @question.body
+    h2 = @question.title
 
 .container.mt-2
   - if alert
     .alert.alert-danger = alert
 
-  = form_tag answer_quiz_path(@question), method: :get, class: 'form-inline' do
-    .form-group
-      = label_tag(:answer, t('.label_answer'))
-      = ' '
-      = text_field_tag(:answer, nil, class: 'form-control')
-    = ' '
-    = submit_tag(t('.button_answer'), class: 'btn btn-primary')
-    = ' '
-    = link_to t('common.link_cancel'), quiz_index_path,
-      class: 'btn btn-outline-primary'
+  .card
+    .card-block
+      = markdown @question.body
+
+    .card-footer
+      = form_tag answer_quiz_path(@question), method: :get, class: 'form-inline' do
+        .form-group
+          = label_tag(:answer, t('.label_answer'))
+          = ' '
+          = text_field_tag(:answer, nil, class: 'form-control')
+        = ' '
+        = submit_tag(t('.button_answer'), class: 'btn btn-primary')
+        = ' '
+        = link_to t('common.link_cancel'), quiz_index_path,
+          class: 'btn btn-outline-primary'

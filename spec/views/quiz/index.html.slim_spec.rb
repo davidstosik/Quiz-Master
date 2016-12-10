@@ -8,7 +8,8 @@ RSpec.describe 'quiz/index', type: :view do
     render
     assert_select 'table tr' do |elements|
       elements[1..-1].each_with_index do |element, i|
-        assert_select element, 'td', text: questions[i].body, count: 1
+        assert_select element, 'td', text: questions[i].title, count: 1
+        assert_select element, 'td', text: questions[i].body, count: 0
         assert_select element, 'a[href=?]', quiz_path(questions[i])
       end
     end

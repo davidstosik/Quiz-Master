@@ -73,14 +73,13 @@ en:
     index:
       title: "Questions"
       lead: "Manage your questions here. You can create, view, edit and delete questions."
-      table_head_body: "Question"
+      table_head_title: "Title"
       table_head_answer: "Answer"
       confirm_destroy: "Are you sure?"
       link_new_question: "New Question"
     new:
       title: "New Question"
     show:
-      title: "Question #%{id}"
       label_body: "Question:"
       label_answer: "Correct answer:"
     update:

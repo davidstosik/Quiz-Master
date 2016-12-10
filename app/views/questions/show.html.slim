@@ -6,7 +6,7 @@
     = link_to t('common.link_edit'), edit_question_path(@question),
       class: 'btn btn-primary'
 
-  h1 = t('.title', id: @question.id)
+  h1 = @question.title
 
   dl.row
     dt.col-sm-3 = t('.label_body')

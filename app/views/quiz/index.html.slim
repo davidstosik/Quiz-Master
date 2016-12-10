@@ -21,6 +21,6 @@
       tbody
         - @questions.each do |question|
           tr
-            td = question.body
+            td = question.title
             td = link_to t('.link_answer_question'), quiz_path(question),
                  class: 'btn btn-secondary btn-sm'

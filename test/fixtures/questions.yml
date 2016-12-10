@@ -1,15 +1,20 @@
 vowels:
+  title: "English vowels"
   body: "How many vowels are there in the English alphabet?"
   answer: "5"
 letters:
+  title: "English alphabet"
   body: "How many letters are there in the English alphabet?"
   answer: "26"
 eiffel_tower:
+  title: "Eiffel Tower"
   body: "In which city is the Eiffel Tower located?"
   answer: "Paris"
 tokyo_tower:
+  title: "Tokyo Tower"
   body: "In which city is Tokyo Tower located?"
   answer: "Tokyo"
 hiragana:
+  title: "Hiragana"
   body: "How many Hiragana are there in the Japanese language?"
   answer: "46"

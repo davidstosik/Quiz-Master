@@ -8,6 +8,11 @@
           li = message
 
   .form-group.row
+    = f.label :title, class: 'col-sm-2 col-form-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control'
+
+  .form-group.row
     = f.label :body, class: 'col-sm-2 col-form-label'
     .col-sm-10
       = f.text_area :body, class: 'form-control simplemde'

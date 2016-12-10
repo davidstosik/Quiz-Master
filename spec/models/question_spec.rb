@@ -4,6 +4,9 @@ RSpec.describe Question, type: :model do
   let(:question) { build(:question) }
 
   describe 'attributes' do
+    it 'should have a title' do
+      expect(question.title).to be_present
+    end
     it 'should have a body' do
       expect(question.body).to be_present
     end
@@ -13,6 +16,7 @@ RSpec.describe Question, type: :model do
   end
 
   describe 'validations' do
+    it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:body) }
     it { is_expected.to validate_presence_of(:answer) }
   end

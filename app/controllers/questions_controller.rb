@@ -67,7 +67,7 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:body, :answer)
+      params.require(:question).permit(:title, :body, :answer)
     end
 
     def create_update_success(format)

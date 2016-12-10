@@ -33,16 +33,20 @@ RSpec.resource 'Questions' do
   end
 
   post '/questions.json' do
+    let(:question) { build(:question) }
+    parameter :title, 'A plain text title', scope: :question, required: true
+    let(:title) { question.title }
+
     parameter :body, 'The question', scope: :question, required: true
-    let(:body) { 'How many vowels are there in the English alphabet?' }
+    let(:body) { question.body }
 
     parameter :answer, 'Its answer', scope: :question, required: true
-    let(:answer) { '5' }
+    let(:answer) { question.answer }
 
-    example_request 'Create a new Question' do
+    example 'Create a new Question' do
       explanation 'Creates a new Question record.'
+      expect { do_request }.to change(Question, :count).by(1)
       expect(status).to eq 201
-      expect(Question.count).to eq 6
       %w(body answer).each do |attribute|
         expect(response_json[attribute]).to eq send(attribute)
       end

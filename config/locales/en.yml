@@ -37,6 +37,7 @@ en:
   activerecord:
     attributes:
       question:
+        title: "Title"
         body: "Question"
         answer: "Correct answer"
 

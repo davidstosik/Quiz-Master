@@ -53,7 +53,7 @@ RSpec.describe "Questions", type: :request do
   describe 'POST /questions' do
     let(:params) do
       {
-        question: build(:question).attributes.slice(*%w{body answer})
+        question: build(:question).attributes.slice(*%w{title body answer})
       }.with_indifferent_access
     end
     let(:request) { -> { post questions_path, params: params } }

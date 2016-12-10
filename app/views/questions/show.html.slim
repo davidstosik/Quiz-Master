@@ -3,8 +3,11 @@
     .alert.alert-info = notice
 
   .text-xs-right.float-md-right
-    = link_to t('common.link_edit'), edit_question_path(@question),
-      class: 'btn btn-primary'
+    .btn-group role="group"
+      = link_to t('.link_preview'), quiz_path(@question),
+        class: 'btn btn-outline-primary'
+      = link_to t('common.link_edit'), edit_question_path(@question),
+        class: 'btn btn-primary'
 
   h1 = @question.title
 

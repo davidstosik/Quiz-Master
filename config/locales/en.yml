@@ -82,6 +82,7 @@ en:
     show:
       label_body: "Question:"
       label_answer: "Correct answer:"
+      link_preview: "Preview Quiz"
     update:
       success: "Question was successfully updated."
 

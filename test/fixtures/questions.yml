@@ -18,3 +18,7 @@ hiragana:
   title: "Hiragana"
   body: "How many Hiragana are there in the Japanese language?"
   answer: "46"
+moon:
+  title: "A famous quote on the Moon"
+  body: "Who is the author of the following quote?\n\n> That's one small step for man, one giant leap for mankind.\n\n*(Provide a full name.)*"
+  answer: "Neil Armstrong"

@@ -10,5 +10,8 @@ header.navbar.navbar-full.navbar-dark.bg-primary.navbar-static-top
       ul.nav.navbar-nav
         - navbar_links.each do |key, link|
           li.nav-item
-            = link_to t(".#{key}"), link[:uri],
-              class: ['nav-link', (link[:active] ? 'active' : '')]
+            = link_to link[:uri],
+              class: ['nav-link', (link[:active] ? 'active' : '')] do
+              = icon(link[:icon])
+              = ' '
+              = t(".#{key}")

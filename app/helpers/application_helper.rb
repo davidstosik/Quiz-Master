@@ -24,14 +24,17 @@ module ApplicationHelper
       questions: {
         uri: questions_path,
         active: controller_name == 'questions',
+        icon: 'gear'
       },
       quiz: {
         uri: quiz_index_path,
-        active: controller_name == 'quiz' && action_name != 'random'
+        active: controller_name == 'quiz' && action_name != 'random',
+        icon: 'question'
       },
       random: {
         uri: random_quiz_index_path,
-        active: controller_name == 'quiz' && action_name == 'random'
+        active: controller_name == 'quiz' && action_name == 'random',
+        icon: 'random'
       }
     }
   end

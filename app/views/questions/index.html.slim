@@ -9,8 +9,10 @@
       .alert.alert-info = notice
 
     .mb-1
-      = link_to t('.link_new_question'), new_question_path,
-        class: 'btn btn-primary'
+      = link_to new_question_path, class: 'btn btn-primary' do
+        = icon('plus')
+        = ' '
+        = t('.link_new_question')
 
     .table-responsive
       table.table.table-hover

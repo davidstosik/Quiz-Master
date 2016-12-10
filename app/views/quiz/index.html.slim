@@ -8,8 +8,10 @@
     .alert.alert-info = notice
 
   .mb-1
-    = link_to t('.link_random'), random_quiz_index_path,
-      class: 'btn btn-primary'
+    = link_to random_quiz_index_path, class: 'btn btn-primary' do
+      = icon('random')
+      = ' '
+      = t('.link_random')
 
   .table-responsive
     table.table.table-hover
@@ -22,5 +24,8 @@
         - @questions.each do |question|
           tr
             td = question.title
-            td = link_to t('.link_answer_question'), quiz_path(question),
-                 class: 'btn btn-secondary btn-sm'
+            td = link_to quiz_path(question),
+            class: 'btn btn-secondary btn-sm' do
+              = t('.link_answer_question')
+              = ' '
+              = icon('angle-double-right')

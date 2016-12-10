@@ -48,7 +48,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '~> 3.0'
-  gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'rspec_api_documentation'

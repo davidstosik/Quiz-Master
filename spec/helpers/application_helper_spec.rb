@@ -1,15 +1,5 @@
 require 'rails_helper'
 
-# Specs in this file have access to a helper object that includes
-# the QuestionsHelper. For example:
-#
-# describe QuestionsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe ApplicationHelper, type: :helper do
   describe '#markdown' do
     it "calls Redcarpet's #render method" do
@@ -36,8 +26,47 @@ RSpec.describe ApplicationHelper, type: :helper do
     it 'converts one new line to a break tags' do
       expect(helper.markdown("new\nline")).to eq("<p>new<br>\nline</p>\n")
     end
-    it 'converts two consecutive new lines to a pnew paragraph' do
+    it 'converts two consecutive new lines to a new paragraph' do
       expect(helper.markdown("new\n\nline")).to eq("<p>new</p>\n\n<p>line</p>\n")
+    end
+  end
+
+  describe '#navbar_links' do
+    it 'returns questions, quiz and random' do
+      expect(helper.navbar_links.keys).to eq [:questions, :quiz, :random]
+    end
+    it 'returns a URI for each link' do
+      helper.navbar_links.each do |_, item|
+        expect(item[:uri]).not_to be_blank
+      end
+    end
+    context 'when on specific controller#action' do
+      before do
+        allow(helper).to receive(:controller_name) { controller_name }
+        allow(helper).to receive(:action_name) { action_name }
+      end
+
+      context 'Questions#[any]' do
+        let(:controller_name) { 'questions' }
+        it "sets 'questions' as the active item" do
+          expect(helper.navbar_links.select { |_, item| item[:active] }.keys).to eq [:questions]
+        end
+      end
+
+      context 'Quiz#[any but random]' do
+        let(:controller_name) { 'quiz' }
+        it "sets 'quiz' as the active item" do
+          expect(helper.navbar_links.select { |_, item| item[:active] }.keys).to eq [:quiz]
+        end
+      end
+
+      context 'Quiz#random' do
+        let(:controller_name) { 'quiz' }
+        let(:action_name) { 'random' }
+        it "sets 'random' as the active item" do
+          expect(helper.navbar_links.select { |_, item| item[:active] }.keys).to eq [:random]
+        end
+      end
     end
   end
 end

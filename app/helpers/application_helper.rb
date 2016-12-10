@@ -18,4 +18,21 @@ module ApplicationHelper
 
     @markdown.render(text).html_safe
   end
+
+  def navbar_links
+    {
+      questions: {
+        uri: questions_path,
+        active: controller_name == 'questions',
+      },
+      quiz: {
+        uri: quiz_index_path,
+        active: controller_name == 'quiz' && action_name != 'random'
+      },
+      random: {
+        uri: random_quiz_index_path,
+        active: controller_name == 'quiz' && action_name == 'random'
+      }
+    }
+  end
 end

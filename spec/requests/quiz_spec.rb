@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Quiz", type: :request do
-  let!(:question) { create(:question, answer: 'very unique string') }
+  let!(:question) { create(:question) }
   let!(:questions) { [question] + create_list(:question, 5) }
 
   describe 'GET /quiz' do

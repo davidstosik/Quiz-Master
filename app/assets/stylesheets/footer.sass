@@ -1,0 +1,23 @@
+body
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+main
+  flex: 1
+
+.footer
+  line-height: 2em
+
+  .list-unstyled
+    margin-bottom: 0
+
+  +media-breakpoint-up(md)
+    line-height: 4em
+
+    .list-item
+      display: inline-block
+      &:not(:last-child)
+        margin-right: 5px
+        &:after
+          content: ' | '

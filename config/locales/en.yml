@@ -34,6 +34,14 @@ en:
       quiz: "Quiz"
       random: "Random"
 
+    footer:
+      built_by:
+        title: "Built by %{name}"
+        name: "David Stosik"
+      source:
+        title: "Source available on %{link}"
+        link: "Github"
+
   activerecord:
     attributes:
       question:

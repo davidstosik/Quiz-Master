@@ -1,0 +1,16 @@
+footer.footer.bg-faded
+  .container.text-muted.text-xs-center
+    ul.list-unstyled
+      li.list-item
+        - link = link_to('https://davidstosik.me', target: '_blank') do
+          = t('.built_by.name')
+          = ' '
+          = icon('external-link')
+        == t('.built_by.title', name: link)
+      li.list-item
+        - link = link_to('https://github.com/davidstosik/Quiz-Master',
+          target: '_blank') do
+          = t('.source.link')
+          = ' '
+          = icon('external-link')
+        == t('.source.title', link: link)

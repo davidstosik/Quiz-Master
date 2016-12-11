@@ -12,3 +12,14 @@ blockquote
 .editor-preview-side
   // Above navbar
   z-index: 2000
+
+.footer
+  ul.list-unstyled
+    margin-bottom: 0
+  +media-breakpoint-up(md)
+    .list-item
+      display: inline-block
+      &:not(:last-child)
+        margin-right: 5px
+        &:after
+          content: ' | '

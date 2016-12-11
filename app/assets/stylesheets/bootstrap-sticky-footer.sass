@@ -1,0 +1,39 @@
+// Source: http://v4-alpha.getbootstrap.com/examples/sticky-footer/
+
+// Sticky footer styles
+//------------------------------------------------
+$footer-bg: white !default
+$footer-items: 1 !default
+
+$footer-md-height: 4em !default
+$footer-xs-item-height: 2em !default
+$footer-margin-top: 1em !default
+
+$footer-xs-height: $footer-items * $footer-xs-item-height
+
+html
+  position: relative
+  min-height: 100%
+
+body
+  // Margin bottom by footer height
+  margin-bottom: $footer-xs-height + $footer-margin-top
+
+.footer
+  position: absolute
+  width: 100%
+  bottom: 0
+  // Set the fixed height of the footer here
+  height: $footer-xs-height
+  line-height: $footer-xs-item-height
+
++media-breakpoint-up(md)
+  body
+    // Margin bottom by footer height
+    margin-bottom: $footer-md-height + $footer-margin-top
+
+  .footer
+    // Set the fixed height of the footer here
+    height: $footer-md-height
+    // Vertically center the text there
+    line-height: $footer-md-height
